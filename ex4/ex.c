@@ -2,9 +2,9 @@
 
 int main (int argc, char *argv[]) {
 	int age = 10;
-	int height = 72;
+	int height = 227;
 
-	printf("I am %d years old.\n");
-	printf("I am %d inches tall.\n", height);
+	printf("I am %d years old\n");
+	printf("I am %d inches tall\n", height);
 	return 0;
 }
