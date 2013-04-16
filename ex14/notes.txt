@@ -1,0 +1,30 @@
+what is the relationship between pointers and arrays in C?
+
+If you start with the char c[] this surely indicates a contiguous section of memory occupied with characters until we meet the \0. Then there are no more characters.
+
+So this means that the char c[] variable (i.e. c) is simply a pointer to a location. This means that c[i] is the same as *(c+i).
+
+Ok, that is easy so what about this 
+
+char c[][] 
+char *c[]
+char **c
+
+are these all the same declaration? So what do we get with the first one
+
+char c[][]
+
+if we think of it sort of like the simple case (char c[]) we could write it as char (c[])[] and claim that substituting c[] in the latter for c in the former that they look very similar (that isn't totally clear)
+
+So we can think of it as an array of whatever is in the brackets, in this case c[]. So we begin with a pointer to a contiguous section of memory terminating in '\0'. For char c[] this memory contains successive char elements, i.e. bytes. In the case of char (c[])[] the memory contains c[], i.e. *char a pointer of wordish length. So each of these pointers points to a section of memory (specifically the starting address) which contains char elements terminating in '\0'.
+
+I am now convinced that each of the three declarations above are equivalent.
+
+Of course we can also note that I seem to be able to pass in just about anything and the C compiler only emits warnings.
+
+Ok, the next step is to note that the first of the three variable declarations seems to be illegal. The compiler won't let me declare char c[][]. From reading it looks like you can only leave the inner-most array blank, the outer ones must be given a fixed size? Not sure, a bit confused :)
+
+So a quick list of equivalences I believe are correct.
+
+char *c[] == char **c
+char c[] == char *c
