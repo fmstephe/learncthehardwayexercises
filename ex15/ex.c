@@ -62,7 +62,6 @@ int main (int argc, char *argv[]) {
 	for (int i = 0; i < count; i++) {
 		printf("%s is %d years old again\n", name_ptr[i], age_ptr[i]);
 	}
-	*/
 
 	printf("---\n");
 
@@ -70,6 +69,7 @@ int main (int argc, char *argv[]) {
 	for (name_ptr = names, age_ptr = ages; (name_ptr - names) < count; name_ptr++, age_ptr++) {
 		printf("%s lived %d years so far\n", *name_ptr, *age_ptr);
 	}
+	*/
 
 	return 0;
 }
